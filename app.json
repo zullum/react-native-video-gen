@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "todoistClone",
-    "slug": "todoistClone",
+    "name": "videoGen",
+    "slug": "videoGen",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,14 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.todoistClone"
+      "bundleIdentifier": "com.anonymous.videoGen"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.todoistClone"
+      "package": "com.anonymous.videoGen"
     },
     "web": {
       "bundler": "metro",
