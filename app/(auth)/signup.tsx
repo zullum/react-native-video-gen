@@ -47,8 +47,8 @@ export default function SignUpScreen() {
   };
 
   return (
-    <View className="flex-1 justify-center p-6 bg-white">
-      <Text className="text-3xl font-bold mb-8 text-center text-gray-800">
+    <View className="flex-1 justify-center items-center px-6 bg-white">
+      <Text className="text-[28px] font-bold mb-8 text-center text-gray-800">
         Create Account
       </Text>
 
@@ -62,9 +62,9 @@ export default function SignUpScreen() {
           },
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View className="mb-4">
+          <View className="w-full mb-4">
             <TextInput
-              className="w-full p-4 border border-gray-300 rounded-lg mb-1"
+              className="w-full h-12 px-4 rounded-lg bg-white border border-gray-300"
               placeholder="Email"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -73,7 +73,7 @@ export default function SignUpScreen() {
               autoCapitalize="none"
             />
             {errors.email && (
-              <Text className="text-red-500 text-sm">
+              <Text className="text-red-500 text-sm mt-1">
                 {errors.email.message}
               </Text>
             )}
@@ -92,9 +92,9 @@ export default function SignUpScreen() {
           },
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View className="mb-4">
+          <View className="w-full mb-4">
             <TextInput
-              className="w-full p-4 border border-gray-300 rounded-lg mb-1"
+              className="w-full h-12 px-4 rounded-lg bg-white border border-gray-300"
               placeholder="Password"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -102,7 +102,7 @@ export default function SignUpScreen() {
               secureTextEntry
             />
             {errors.password && (
-              <Text className="text-red-500 text-sm">
+              <Text className="text-red-500 text-sm mt-1">
                 {errors.password.message}
               </Text>
             )}
@@ -119,9 +119,9 @@ export default function SignUpScreen() {
             value === password || 'The passwords do not match',
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View className="mb-6">
+          <View className="w-full mb-6">
             <TextInput
-              className="w-full p-4 border border-gray-300 rounded-lg mb-1"
+              className="w-full h-12 px-4 rounded-lg bg-white border border-gray-300"
               placeholder="Confirm Password"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -129,7 +129,7 @@ export default function SignUpScreen() {
               secureTextEntry
             />
             {errors.confirmPassword && (
-              <Text className="text-red-500 text-sm">
+              <Text className="text-red-500 text-sm mt-1">
                 {errors.confirmPassword.message}
               </Text>
             )}
@@ -139,21 +139,19 @@ export default function SignUpScreen() {
       />
 
       <TouchableOpacity
-        className="w-full bg-blue-500 p-4 rounded-lg mb-4"
+        className="w-full h-12 bg-blue-500 rounded-lg mb-4 justify-center items-center"
         onPress={handleSubmit(onSubmit)}
         disabled={isLoading}
       >
         {isLoading ? (
           <ActivityIndicator color="white" />
         ) : (
-          <Text className="text-white text-center font-semibold text-lg">
-            Sign Up
-          </Text>
+          <Text className="text-white font-semibold text-base">Sign Up</Text>
         )}
       </TouchableOpacity>
 
-      <View className="flex-row justify-center space-x-1">
-        <Text className="text-gray-600">Already have an account?</Text>
+      <View className="flex-row items-center justify-center">
+        <Text className="text-gray-600 mr-1">Already have an account?</Text>
         <Link href="./login" asChild>
           <TouchableOpacity>
             <Text className="text-blue-500 font-semibold">Sign In</Text>

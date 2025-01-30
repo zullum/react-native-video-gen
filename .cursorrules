@@ -11,3 +11,4 @@ Write professional code and comments.
 Add a detailed logs to the code to help me understand the code better and when we iterate on the code we can remove the logs if we have success or add more detailed logs to understand the error and debug it easier.
 Follow SOLID principles and DRY principles. Create small components and functions that are easy to understand and maintain.
 Write components and functions that are easy testable and have a single responsibility.
+Remove the imports and unused variables or functions if they are not used anymore after code changes.

@@ -4,47 +4,67 @@
     "slug": "videoGen",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/splash-icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.videoGen"
+      "bundleIdentifier": "com.sanelzulic.videoGen",
+      "minVersion": "15.1",
+      "googleServicesFile": "./config/firebase/GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/splash-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.videoGen"
+      "package": "com.sanelzulic.videoGen",
+      "googleServicesFile": "./config/firebase/google-services.json"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/splash-icon.png"
     },
     "plugins": [
       "expo-router",
+      "@react-native-firebase/app",
       [
-        "expo-splash-screen",
+        "expo-build-properties",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
-        }
-      ],
-      [
-        "expo-dev-launcher",
-        {
-          "launchMode": "most-recent"
+          "ios": {
+            "deploymentTarget": "15.1",
+            "enableBitcode": false,
+            "newArchEnabled": false,
+            "useFrameworks": "static",
+            "buildConfiguration": "Release",
+            "compileBitcode": false,
+            "pods": {
+              "RNReanimated": {
+                "modular_headers": true,
+                "inhibit_warnings": true
+              },
+              "React-RCTFabric": {
+                "modular_headers": true
+              },
+              "React-Core": {
+                "modular_headers": true
+              }
+            }
+          }
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
-    },
-    "platforms": ["android", "ios", "web"]
+    }
   }
 }

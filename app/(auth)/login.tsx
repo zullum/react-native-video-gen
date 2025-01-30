@@ -1,7 +1,12 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-import { TextInput } from 'react-native';
 import { useAuth } from '../../context/AuthContext';
 import { Link, useRouter } from 'expo-router';
 
@@ -13,7 +18,7 @@ interface LoginForm {
 export default function LoginScreen() {
   const { signIn } = useAuth();
   const router = useRouter();
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     control,
@@ -42,8 +47,8 @@ export default function LoginScreen() {
   };
 
   return (
-    <View className="flex-1 justify-center p-6 bg-white">
-      <Text className="text-3xl font-bold mb-8 text-center text-gray-800">
+    <View className="flex-1 justify-center items-center px-6 bg-white">
+      <Text className="text-[28px] font-bold mb-8 text-center text-gray-800">
         Welcome Back
       </Text>
 
@@ -57,9 +62,9 @@ export default function LoginScreen() {
           },
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View className="mb-4">
+          <View className="w-full mb-4">
             <TextInput
-              className="w-full p-4 border border-gray-300 rounded-lg mb-1"
+              className="w-full h-12 px-4 rounded-lg bg-white border border-gray-300"
               placeholder="Email"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -68,7 +73,7 @@ export default function LoginScreen() {
               autoCapitalize="none"
             />
             {errors.email && (
-              <Text className="text-red-500 text-sm">
+              <Text className="text-red-500 text-sm mt-1">
                 {errors.email.message}
               </Text>
             )}
@@ -87,9 +92,9 @@ export default function LoginScreen() {
           },
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View className="mb-6">
+          <View className="w-full mb-6">
             <TextInput
-              className="w-full p-4 border border-gray-300 rounded-lg mb-1"
+              className="w-full h-12 px-4 rounded-lg bg-white border border-gray-300"
               placeholder="Password"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -97,7 +102,7 @@ export default function LoginScreen() {
               secureTextEntry
             />
             {errors.password && (
-              <Text className="text-red-500 text-sm">
+              <Text className="text-red-500 text-sm mt-1">
                 {errors.password.message}
               </Text>
             )}
@@ -107,21 +112,19 @@ export default function LoginScreen() {
       />
 
       <TouchableOpacity
-        className="w-full bg-blue-500 p-4 rounded-lg mb-4"
+        className="w-full h-12 bg-blue-500 rounded-lg mb-4 justify-center items-center"
         onPress={handleSubmit(onSubmit)}
         disabled={isLoading}
       >
         {isLoading ? (
           <ActivityIndicator color="white" />
         ) : (
-          <Text className="text-white text-center font-semibold text-lg">
-            Sign In
-          </Text>
+          <Text className="text-white font-semibold text-base">Sign In</Text>
         )}
       </TouchableOpacity>
 
-      <View className="flex-row justify-center space-x-1">
-        <Text className="text-gray-600">Don't have an account?</Text>
+      <View className="flex-row items-center justify-center mb-4">
+        <Text className="text-gray-600 mr-1">Don't have an account?</Text>
         <Link href="./signup" asChild>
           <TouchableOpacity>
             <Text className="text-blue-500 font-semibold">Sign Up</Text>
@@ -131,9 +134,7 @@ export default function LoginScreen() {
 
       <Link href="./forgot-password" asChild>
         <TouchableOpacity>
-          <Text className="text-blue-500 text-center mt-4 font-semibold">
-            Forgot Password?
-          </Text>
+          <Text className="text-blue-500 font-semibold">Forgot Password?</Text>
         </TouchableOpacity>
       </Link>
     </View>

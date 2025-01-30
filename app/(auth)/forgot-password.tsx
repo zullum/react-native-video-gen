@@ -45,16 +45,16 @@ export default function ForgotPasswordScreen() {
 
   if (isEmailSent) {
     return (
-      <View className="flex-1 justify-center p-6 bg-white">
-        <Text className="text-3xl font-bold mb-4 text-center text-gray-800">
+      <View className="flex-1 justify-center items-center px-6 bg-white">
+        <Text className="text-[28px] font-bold mb-4 text-center text-gray-800">
           Email Sent!
         </Text>
         <Text className="text-gray-600 text-center mb-8">
           Please check your email for instructions to reset your password.
         </Text>
         <Link href="./login" asChild>
-          <TouchableOpacity className="w-full bg-blue-500 p-4 rounded-lg">
-            <Text className="text-white text-center font-semibold text-lg">
+          <TouchableOpacity className="w-full h-12 bg-blue-500 rounded-lg justify-center items-center">
+            <Text className="text-white font-semibold text-base">
               Back to Login
             </Text>
           </TouchableOpacity>
@@ -64,8 +64,8 @@ export default function ForgotPasswordScreen() {
   }
 
   return (
-    <View className="flex-1 justify-center p-6 bg-white">
-      <Text className="text-3xl font-bold mb-4 text-center text-gray-800">
+    <View className="flex-1 justify-center items-center px-6 bg-white">
+      <Text className="text-[28px] font-bold mb-4 text-center text-gray-800">
         Reset Password
       </Text>
       <Text className="text-gray-600 text-center mb-8">
@@ -83,9 +83,9 @@ export default function ForgotPasswordScreen() {
           },
         }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <View className="mb-6">
+          <View className="w-full mb-6">
             <TextInput
-              className="w-full p-4 border border-gray-300 rounded-lg mb-1"
+              className="w-full h-12 px-4 rounded-lg bg-white border border-gray-300"
               placeholder="Email"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -94,7 +94,7 @@ export default function ForgotPasswordScreen() {
               autoCapitalize="none"
             />
             {errors.email && (
-              <Text className="text-red-500 text-sm">
+              <Text className="text-red-500 text-sm mt-1">
                 {errors.email.message}
               </Text>
             )}
@@ -104,14 +104,14 @@ export default function ForgotPasswordScreen() {
       />
 
       <TouchableOpacity
-        className="w-full bg-blue-500 p-4 rounded-lg mb-4"
+        className="w-full h-12 bg-blue-500 rounded-lg mb-4 justify-center items-center"
         onPress={handleSubmit(onSubmit)}
         disabled={isLoading}
       >
         {isLoading ? (
           <ActivityIndicator color="white" />
         ) : (
-          <Text className="text-white text-center font-semibold text-lg">
+          <Text className="text-white font-semibold text-base">
             Send Reset Link
           </Text>
         )}
@@ -119,9 +119,7 @@ export default function ForgotPasswordScreen() {
 
       <Link href="./login" asChild>
         <TouchableOpacity>
-          <Text className="text-blue-500 text-center font-semibold">
-            Back to Login
-          </Text>
+          <Text className="text-blue-500 font-semibold">Back to Login</Text>
         </TouchableOpacity>
       </Link>
     </View>
